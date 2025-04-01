@@ -1,0 +1,228 @@
+\documentclass[letterpaper, 11pt]{extarticle}
+% \usepackage{fontspec}
+
+% Document parameters
+\usepackage[spanish]{babel}
+\decimalpoint %separador punto
+\usepackage[margin = 1in]{geometry}
+
+% Packages for math
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{esint}
+
+% Packages for writing
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{framed}
+\usepackage{csquotes}
+
+% Miscellaneous packages
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{caption}
+\captionsetup{format = hang, margin = 10pt, font = small, labelfont = bf}
+
+
+
+%///////////////////////////  FORMATO  //////////////////////////
+
+\usepackage{titlesec}
+\usepackage[many]{tcolorbox}
+
+% Adjust spacing after the chapter title
+\titlespacing*{\chapter}{0cm}{-2.0cm}{0.50cm}
+\titlespacing*{\section}{0cm}{0.50cm}{0.25cm}
+
+% Indent 
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+
+% \numberwithin{equation}{section}
+
+\newtcbtheorem[]{problem}{Problema}%
+    {enhanced,
+    colback = lime!8, %white,
+    colbacktitle = lime!35,
+    coltitle = black,
+    boxrule = 0pt,
+    frame hidden,
+    borderline west = {0.5mm}{0.0mm}{black},
+    fonttitle = \bfseries\sffamily,
+    breakable,
+    before skip = 3ex,
+    after skip = 3ex
+}{problem}
+
+\tcbuselibrary{skins, breakable}
+%\pagecolor{yellow!7}
+
+
+
+%///////////////////////////  CONTENIDO  //////////////////////////
+\begin{document}
+
+
+\begin{Large}
+    \textsf{\textbf{PS01 -- Economic Policy}}
+    
+    \normalsize \textsf{Lecturer:} \text{Luis Chávez} 
+    \vspace{0.2cm} \hrule
+\end{Large}
+\vspace{0.2cm}
+Los siguientes ejercicios permiten medir la capacidad analítica y procedimental. Se sugiere resolverlos en forma ascendente.
+
+
+
+
+%----------------------------------------------------------------
+\begin{problem}{DGE determinístico}{}
+
+\textbf{a) El modelo}:
+
+La familia representativa resuelve
+\begin{equation}
+    \underset{\{C_t,I_t,O_t\}}{\max}=\sum_{t=0}^{\infty} \beta^t[\theta\ln(C_t)+(1-\theta)\ln(1-L_t)]; \ \ \ 0<\beta<1
+\end{equation}
+
+sujeto a
+\begin{equation}
+    C_t+I_t=w_tL_t+r_tK_t
+\end{equation}
+\begin{equation}
+    K_{t+1}=I_t+(1-\delta)K_t, \ \ \ \delta>0
+\end{equation}
+
+La firma representativa resuelve:
+\begin{equation}
+    \underset{\{K_t,L_t\}}{\max} \pi_t=Y_t-w_tL_t-r_tK_t
+\end{equation}
+s.a
+\begin{equation}
+    Y_t=A_tK_t^{1-\alpha}L_t^{\alpha}
+\end{equation}
+
+\textbf{b) Solución}
+
+El langriano de la familia será:
+\begin{equation}
+    \mathcal{L}=\sum_{t=0}^{\infty} \left\{\beta^t[\theta\ln(C_t)+(1-\theta)\ln(1-L_t)]-\lambda_t[C_t+K_{t+1}-(1-\delta)K_t-w_tL_t-r_tK_t] \right \}
+\end{equation}
+
+FOC:
+
+\begin{align}
+    \underline{C_t|} & \hspace{.5cm} \beta^t\left\{\theta \dfrac{1}{C_t}-\lambda_t\right\}=0 \\
+    \underline{L_t|}  & \hspace{.5cm} \beta^t\left\{-(1-\theta)\dfrac{1}{1-L_t}+w_t\lambda_t  \right\}=0 \\
+    \underline{K_t|} & \hspace{.5cm} \beta^t\left\{\lambda_t(1-\delta+r_t)\right\}-\beta^{t-1}\lambda_{t-1}=0 \\
+    \underline{\lambda_t|} & \hspace{.5cm} \beta^t\left\{C_t+K_{t+1}-(1-\delta)K_t-w_tL_t-r_tK_t\right\}=0
+\end{align}
+
+De (7) en (8) se tiene
+\begin{equation*}
+    (1-\theta)\dfrac{1}{1-L_t}=w_t\dfrac{\theta}{C_t}
+\end{equation*}
+
+Organizando, se tiene la ecuación de euler de la relación marginal de sustitución entre consumo y ocio:
+\begin{equation}
+    w_t=\dfrac{1-\theta}{\theta}\dfrac{C_t}{1-L_t}
+\end{equation}
+
+De (7) en (9), se tiene
+\begin{equation*}
+    \beta \dfrac{\theta}{C_t}(1-\delta+r_t)=\dfrac{\theta}{C_{t-1}}
+\end{equation*}
+
+Organizando, se tiene la ecuación de Euler del ratio del consumo:
+\begin{equation}
+    \dfrac{C_t}{C_{t-1}}=\beta[1-\delta+r_t]
+\end{equation}
+
+De (10) se tiene,
+\begin{equation}
+    C_t+K_{t+1}-(1-\delta)K_t=w_tL_t+r_tK_t
+\end{equation}
+
+Por su parte, la firma resuelve una expresión irrestricta si de (4) y (5) se escribe:
+\begin{equation}
+    \underset{\{K_t,L_t\}}{\max} \pi_t=A_tK_t^{1-\alpha}L_t^{\alpha}-w_tL_t-r_tK_t
+\end{equation}
+
+FOC:
+\begin{align}
+    \underline{K_t|} & \hspace{.5cm} (1-\alpha)A_tK^{-\alpha}L_t^{\alpha}-r_t=0 \\
+    \underline{L_t|} & \hspace{.5cm} \alpha A_tK^{1-\alpha}L_t^{\alpha-1}-w_t=0
+\end{align}
+
+De (15), se tiene la ecuación de demanda de capital:
+\begin{equation}
+    r_t=(1-\alpha)A_tK^{-\alpha}L_t^{\alpha}=(1-\alpha)\dfrac{Y_t}{K_t}
+\end{equation}
+
+De (16), se tiene la ecuación de demanda laboral:
+\begin{equation}
+    w_t=\alpha A_tK^{1-\alpha}L_t^{\alpha-1}=\alpha\dfrac{Y_t}{L_t}
+\end{equation}
+
+Ahora, (17) y (18) en (13), se tiene:
+$$C_t+K_{t+1}-(1-\delta)K_t=\left[\alpha A_tK^{1-\alpha}L_t^{\alpha-1}\right]L_t+\left[(1-\alpha)A_tK^{-\alpha}L_t^{\alpha}\right]K_t$$
+
+De donde se tiene la ecuación en diferencia (limpieza):
+\begin{equation}
+    C_t+K_{t+1}-(1-\delta)K_t=A_tK^{1-\alpha}L_t^{\alpha}
+\end{equation}
+
+Asimismo, se puede reemplazar (18) en (11) y se tiene
+\begin{equation}
+    \alpha A_tK^{1-\alpha}L_t^{\alpha-1}=\dfrac{1-\theta}{\theta}\dfrac{C_t}{1-L_t}
+\end{equation}
+
+También se puede reemplazar (18) en (12) y se tiene ora ecuación en diferencias:
+\begin{equation}
+    \dfrac{C_t}{C_{t-1}}=\beta[1-\delta+(1-\alpha)A_tK^{-\alpha}L_t^{\alpha}]
+\end{equation}
+
+
+Por lo tanto, la solución competitiva estará dada por las ecuaciones (19), (20) y (21).
+
+\begin{equation}
+\left\{
+\begin{array}{l}
+    C_t + K_{t+1} - (1-\delta)K_t = A_t K^{1-\alpha} L_t^{\alpha} \\
+    \alpha A_t K^{1-\alpha} L_t^{\alpha-1} = \frac{1-\theta}{\theta} \frac{C_t}{1-L_t} \\
+    \frac{C_t}{C_{t-1}} = \beta \left[1 - \delta + (1 - \alpha) A_t K^{-\alpha} L_t^{\alpha} \right]
+\end{array}
+\right.
+\end{equation}
+
+
+\end{problem}
+
+
+
+
+
+%----------------------------------------------------------------
+\begin{problem}{DSGE con dinero}{}
+xxxxxxxxxx
+\end{problem}
+
+
+
+
+\end{document}
+
+
+%----------------------------------------------------------------
+\begin{problem}{Review estadístico}{}
+Sean..........
+
+\end{problem}
