@@ -17,7 +17,7 @@ La asignatura pertenece al área curricular de teoría económica, es de caráct
 - Libros recomendados.
 
 ## 📩 Contacto
-Si tienes preguntas o sugerencias, puedes escribirme a: [josechavez@lamolina.edu.pe] o abrir un issue en este repositorio.
+Si tienes preguntas o sugerencias, puedes escribirme a: [josechavez@lamolina.edu.pe] o abrir un issue en este repositorio. Consultas en oficina, lunes 2pm-6pm en el edificio DAEP, piso 2, N°7.
 
 ## 📜 Licencia
 Este curso está disponible bajo la licencia de Creative Commons. Puedes usar el material con la debida atribución y permiso.
